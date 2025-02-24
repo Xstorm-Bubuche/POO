@@ -1,0 +1,10 @@
+class GraduateStudent extends Student {
+    public GraduateStudent(String name, int age, String studentID) {
+        super(name, age, studentID);
+    }
+
+    @Override
+    public double getAverageGrade() {
+        return super.getAverageGrade() * 1.1; // Bonus de 10% pour les étudiants en Master
+    }
+}

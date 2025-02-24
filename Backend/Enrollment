@@ -1,0 +1,19 @@
+class Enrollment {
+    private Student student;
+    private Course course;
+
+    public Enrollment(Student student, Course course) {
+        this.student = student;
+        this.course = course;
+        this.register();
+    }
+
+    private void register() {
+        course.enrollStudent(student);
+    }
+
+    @Override
+    public String toString() {
+        return student.getName() + " enrolled in " + course.toString();
+    }
+}
