@@ -1,34 +1,30 @@
 package com.example.demo.model;
 
-// import com.example.demo.model.Course;
-// import com.example.demo.model.Enrollment;
-// import com.example.demo.model.Student;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+// import com.example.demo.model.Enrollment;
+// import com.example.demo.model.Student;
+// import com.example.demo.model.Course;
 
-@RestController
-@RequestMapping("/enrollments")
-public class EnrollmentController {
+
+@Service
+public class EnrollmentService {
     private List<Enrollment> enrollments = new ArrayList<>();
     private List<Student> students = new ArrayList<>();
     private List<Course> courses = new ArrayList<>();
 
-    @PostMapping("/students")
-    public String addStudent(@RequestBody Student student) {
+    public String addStudent(Student student) {
         students.add(student);
         return "Étudiant ajouté : " + student.getName();
     }
 
-    @PostMapping("/courses")
-    public String addCourse(@RequestBody Course course) {
+    public String addCourse(Course course) {
         courses.add(course);
         return "Cours ajouté : " + course.getCourseName();
     }
 
-    @PostMapping
-    public String enrollStudent(@RequestParam String studentID, @RequestParam String courseCode) {
+    public String enrollStudent(String studentID, String courseCode) {
         Student student = students.stream()
                 .filter(s -> s.getStudentID().equals(studentID))
                 .findFirst()
@@ -46,7 +42,6 @@ public class EnrollmentController {
         return student.getName() + " inscrit dans " + course.getCourseName();
     }
 
-    @GetMapping
     public List<Enrollment> getAllEnrollments() {
         return enrollments;
     }

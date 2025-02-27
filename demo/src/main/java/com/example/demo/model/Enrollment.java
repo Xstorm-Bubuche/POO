@@ -7,9 +7,13 @@ public class Enrollment {
     public Enrollment(Student student, Course course) {
         this.student = student;
         this.course = course;
-        course.enrollStudent(student);
     }
 
-    public Student getStudent() { return student; }
-    public Course getCourse() { return course; }
+    public Student getStudent() {
+        return student;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
 }

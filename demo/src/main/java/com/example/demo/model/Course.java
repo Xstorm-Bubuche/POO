@@ -1,29 +1,19 @@
 package com.example.demo.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Course {
-    private String courseName;
     private String courseCode;
-    private int creditHours;
-    private List<Student> students = new ArrayList<>();
+    private String courseName;
 
-    public Course(String courseName, String courseCode, int creditHours) {
-        this.courseName = courseName;
+    public Course(String courseCode, String courseName) {
         this.courseCode = courseCode;
-        this.creditHours = creditHours;
+        this.courseName = courseName;
     }
 
-    public String getCourseName() { return courseName; }
-    public String getCourseCode() { return courseCode; }
-    public int getCreditHours() { return creditHours; }
-
-    public void enrollStudent(Student student) {
-        students.add(student);
+    public String getCourseCode() {
+        return courseCode;
     }
 
-    public List<Student> getEnrolledStudents() {
-        return students;
+    public String getCourseName() {
+        return courseName;
     }
 }

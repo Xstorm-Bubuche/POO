@@ -1,24 +1,19 @@
 package com.example.demo.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Student extends Person {
+public class Student {
     private String studentID;
-    private List<Integer> grades = new ArrayList<>();
+    private String name;
 
-    public Student(String name, int age, String studentID) {
-        super(name, age);
+    public Student(String studentID, String name) {
         this.studentID = studentID;
+        this.name = name;
     }
 
-    public String getStudentID() { return studentID; }
-
-    public void addGrade(int grade) {
-        grades.add(grade);
+    public String getStudentID() {
+        return studentID;
     }
 
-    public double getAverageGrade() {
-        return grades.stream().mapToInt(Integer::intValue).average().orElse(0.0);
+    public String getName() {
+        return name;
     }
 }
