@@ -18,14 +18,15 @@ public class EnrollmentController {
         this.enrollmentService = enrollmentService;
     }
 
-    @RestController
-@RequestMapping("/api")
-public class TestController {
+//     @RestController
+// @RequestMapping("/api")
+// public class TestController {
     
-    @GetMapping("/students")
+    @PostMapping("/students")
     public String addStudent(@RequestBody Student student) {
         return enrollmentService.addStudent(student);
     }
+    
 
     @PostMapping("/courses")
     public String addCourse(@RequestBody Course course) {
@@ -69,5 +70,5 @@ public class TestController {
     //     return enrollmentService.getAllEnrollments();
     // }
     
-}
+//}
 }
